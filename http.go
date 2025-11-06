@@ -305,7 +305,7 @@ func parseErrorBody(resp *http.Response) (errorCode, reason string) {
 	if err := json.Unmarshal(body, &reply); err != nil {
 		// If JSON parsing fails, use the raw body as the error message
 		bodyStr := string(body)
-		return bodyStr, bodyStr
+		return "unknown", bodyStr
 	}
 
 	// Successfully parsed JSON, use the parsed fields
